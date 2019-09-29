@@ -9,6 +9,11 @@ const addPlayer = (e) => {
     joinGameStore.addPlayer()
 }
 
+const startGame = (e) => {
+    e.preventDefault()
+    game.start()
+}
+
 const JoinGameComponent = observer(() => {
 
     // const [name, setName] = useState('')
@@ -26,9 +31,10 @@ const JoinGameComponent = observer(() => {
                              onChange={(e) => joinGameStore.updateName(e.target.value)}/>
             </label>
             <button onClick={addPlayer}>Add player</button>
-            <div>
-                Players: {JSON.stringify(game.players)}
-            </div>
+            {
+                game.players.length === 2 &&
+                <button onClick={startGame}>Start game</button>
+            }
         </div>
     )
 })

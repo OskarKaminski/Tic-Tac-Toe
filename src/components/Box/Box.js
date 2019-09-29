@@ -2,8 +2,8 @@ import React from 'react'
 
 import { Box, BoxContent } from './Box.styles'
 
-const BoxComponent = ({sign}) => (
-    <Box>
+const BoxComponent = ({ sign, onAction }) => (
+    <Box onClick={onAction}>
         <BoxContent>
             {
                 sign && <span>{sign}</span>
