@@ -1,22 +1,25 @@
-import React from "react"
-import { observer } from "mobx-react"
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import Board from './components/Board/Board'
-import JoinGame from './components/JoinGame/JoinGame'
-import PlayerCard from './components/PlayerCard/PlayerCard'
-import { Main } from './App.styles'
-import game from './stores/Game.store'
+import Login from './pages/Login/Login'
+import Game from './pages/Game/Game'
+import NavBar from './components/Navbar/Navbar'
 
-const App = observer(() => (
-    <>
-        <JoinGame/>
-        <br/>
-        <Main>
-            <PlayerCard player={game.players.length > 0 && game.players[0]}/>
-            <Board/>
-            <PlayerCard player={game.players.length > 1 && game.players[1]}/>
-        </Main>
-    </>
-))
+const App = () => (
+    <Router>
+        <div>
+            <NavBar />
+
+            <Switch>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/">
+                    <Game />
+                </Route>
+            </Switch>
+        </div>
+    </Router>
+)
 
 export default App

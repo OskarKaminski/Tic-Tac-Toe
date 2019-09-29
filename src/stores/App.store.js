@@ -1,7 +1,7 @@
 import { observable } from "mobx";
 
-class TodoListModel {
-  @observable number = 1;
+class App {
+  @observable userName = '';
 }
 
-export default new TodoListModel()
+export default new App()
